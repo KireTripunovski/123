@@ -1,0 +1,41 @@
+section {
+  /* height: 100vh; */
+}
+
+.banner {
+  background-image: url("/images/landingPage/banner.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tightText {
+  letter-spacing: 15px;
+}
+
+.signUpContainer {
+  margin-top: 50px;
+  margin-right: 130px;
+}
+
+.signUpBtn {
+  width: 315px;
+  height: 60px;
+  background-color: #024f40;
+  color: white;
+  font-weight: bold;
+  font-size: 27px;
+  border-radius: 8px;
+  border: none;
+}
+
+.signUpBtn:hover {
+  background-color: #09856c;
+  border: none;
+  transition: ease-in-out 0.3s;
+}

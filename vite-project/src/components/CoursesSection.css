@@ -1,0 +1,18 @@
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0f766e;
+  margin-bottom: 1.5rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}

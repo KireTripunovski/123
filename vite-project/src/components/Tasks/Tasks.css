@@ -1,0 +1,44 @@
+/* section {
+  padding: 100px 0;
+} */
+
+.headingFont {
+  font-size: 90px;
+  word-wrap: break-word;
+  margin-bottom: 150px;
+}
+
+.tightText {
+  letter-spacing: -5px;
+}
+
+.card {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+.img {
+  width: 270px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.card-text {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 70%;
+}
+
+.backgroundImgTasks {
+  background-image: url("/images/landingPage/bgImg2.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}

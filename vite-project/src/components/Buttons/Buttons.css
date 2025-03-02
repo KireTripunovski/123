@@ -1,0 +1,12 @@
+.whiteButtonText {
+  font-size: 39px;
+  border: 2px solid #024f40;
+  background-color: white;
+}
+
+.greenButtonText {
+  font-size: 25px;
+  border: 2px solid #024f40;
+  background-color: #024f40;
+  color: white;
+}

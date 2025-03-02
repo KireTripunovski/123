@@ -1,0 +1,25 @@
+.h1FontSize {
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.textStyle {
+  text-align: justify;
+}
+
+.btnStyle {
+  width: 552px;
+  height: 56px;
+  font-size: 20px;
+  border: 2px solid #024f40;
+  background-color: #024f40;
+  color: white;
+}
+
+.backgroundImgCertificates {
+  background-image: url("/images/landingPage/bgImg3.png"),
+    url("/images/landingPage/bgImg1.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left, right;
+  background-size: 60% auto, contain;
+}

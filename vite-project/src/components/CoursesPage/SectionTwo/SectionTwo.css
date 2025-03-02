@@ -1,0 +1,38 @@
+.greenBorder {
+  border: 2px solid #024f40;
+}
+
+.fs-50 {
+  font-size: 50px;
+}
+
+.fs-30 {
+  font-size: 30px;
+}
+
+.whiteButtonCourse {
+  width: 115px;
+  height: 56px;
+  font-size: 20px;
+  color: #024f40;
+  border: 2px solid #024f40;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.greenButtonCourse {
+  width: 400px;
+  height: 54px;
+  font-size: 20px;
+  border: 2px solid #024f40;
+  background-color: #024f40;
+  color: white;
+  border-radius: 5px;
+}
+
+.courseBgOne {
+  background-image: url("/images/CoursesPage/coursesBg1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

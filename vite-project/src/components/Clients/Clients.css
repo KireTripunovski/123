@@ -1,0 +1,14 @@
+.borderStyle {
+  border: 2px solid rgba(2, 79, 64, 1);
+  border-radius: 5px;
+}
+
+.imgRound {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.leftBorder {
+  border-left: 2px solid rgba(2, 79, 64, 1);
+}

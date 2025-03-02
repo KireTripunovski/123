@@ -1,0 +1,20 @@
+.headingStyle {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.textStyle {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.borderDiv {
+  border: 2px solid rgba(2, 79, 64, 1);
+}
+
+.backgroundImgStudent {
+  background-image: url("/images/landingPage/bgImg2.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 60% auto;
+}

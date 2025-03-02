@@ -1,0 +1,31 @@
+.course-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #14532d;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  margin-top: 40px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}

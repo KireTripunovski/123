@@ -1,0 +1,36 @@
+.headingSize {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.textSize {
+  font-weight: 700;
+  font-size: 39px;
+  line-height: 46.8px;
+}
+
+.browseButton {
+  width: 260px;
+  height: 56px;
+  background-color: white;
+  border: 2px solid #024f40;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.lessonButton {
+  width: 406px;
+  height: 56px;
+  background-color: #024f40;
+  color: white;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.backgroundImg {
+  background-image: url("/images/landingPage/bgImg3.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
