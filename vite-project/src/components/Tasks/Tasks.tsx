@@ -27,7 +27,7 @@ export default function Tasks() {
           <div className="row">
             {tasks.map((task) => (
               <div className="col-4">
-                <div className="card">
+                <div className="taskcard">
                   <img
                     src={task.image}
                     className="card-img-top img"

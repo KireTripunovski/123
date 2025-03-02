@@ -2,9 +2,9 @@ import type React from "react";
 import { useState, useEffect } from "react";
 import { ChromeIcon as Google } from "lucide-react";
 import "./login.css";
-import useSignIn from "../hooks/useSignIn";
 import NavbarComponent from "./Navbar";
 import { useNavigate } from "react-router-dom";
+import useSignIn from "../hooks/useSignIn";
 
 interface CarouselImage {
   id: number;
@@ -15,14 +15,7 @@ interface CarouselImage {
 
 const LoginPage: React.FC = () => {
   const { email, setEmail, password, setPassword, error, handleSubmit } =
-    useSignIn() as {
-      email: string;
-      setEmail: React.Dispatch<React.SetStateAction<string>>;
-      password: string;
-      setPassword: React.Dispatch<React.SetStateAction<string>>;
-      error: string | null;
-      handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-    };
+    useSignIn();
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showPassword, setShowPassword] = useState(false);

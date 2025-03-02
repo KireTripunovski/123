@@ -9,30 +9,18 @@ const SignUpPage: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
-  // Validate name field
-  const isValidName = (name: string): boolean => {
-    const regex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
-    return regex.test(name);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess(false);
 
-    // Validate all fields
     if (!name || !email || !password) {
       setError("All fields are required");
       return;
     }
 
-    // Validate name format
-    if (!isValidName(name)) {
-      setError("Name should only contain letters and spaces.");
-      return;
-    }
-
     try {
+      // Step 1: Create the user
       const response = await fetch("http://localhost:3002/users", {
         method: "POST",
         headers: {
@@ -42,8 +30,8 @@ const SignUpPage: React.FC = () => {
           name,
           email,
           password_hash: `hash${password}`,
-          profile_picture: null,
-          role_id: 3,
+          profile_picture: null, // Default if needed
+          role_id: 3, // Default role_id for new users
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString(),
         }),
@@ -55,6 +43,7 @@ const SignUpPage: React.FC = () => {
 
       const userData = await response.json();
 
+      // Step 2: Create corresponding student data for the new user
       const studentDataResponse = await fetch(
         "http://localhost:3002/students_data",
         {
@@ -63,12 +52,12 @@ const SignUpPage: React.FC = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            id: userData.id,
-            gender: "",
-            birth_date: "",
-            school_year: "",
-            field_of_study: "",
-            current_school: "",
+            id: userData.id, // Assign the new user ID
+            gender: "", // You can customize this field
+            birth_date: "", // Customize this field
+            school_year: "", // Customize this field
+            field_of_study: "", // Customize this field
+            current_school: "", // Customize this field
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
           }),
@@ -123,7 +112,11 @@ const SignUpPage: React.FC = () => {
             required
           />
         </div>
-        <button type="submit" className="signup-button">
+        <button
+          onClick={() => navigate("/onboarding")}
+          type="submit"
+          className="signup-button"
+        >
           Sign Up
         </button>
       </form>

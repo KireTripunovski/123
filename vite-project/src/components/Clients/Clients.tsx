@@ -22,37 +22,39 @@ export default function ClientsCarousel() {
   );
 
   return (
-    <section className="sandBackgroundColor py-5">
-      <div className="container">
-        <h2 className="text-center greenColor fw-bold">Our Clients</h2>
+    <section className="sandBackgroundColor py-20">
+      <div className="container mx-auto">
+        <h2 className="text-center greenColor font-bold text-3xl">
+          Our Clients
+        </h2>
 
         <div
           id="testimonialCarousel"
-          className="carousel slide mt-4 borderStyle p-4"
+          className="carousel relative mt-8 borderStyle p-6 rounded-xl"
         >
           <div className="carousel-inner">
             {chunkedTestimonials.map((chunk, index) => (
               <div
-                className={`carousel-item ${index === 0 ? "active" : ""} `}
+                className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={index}
               >
-                <div className="d-flex justify-content-between">
+                <div className="flex justify-between space-x-8">
                   {chunk.map((testimonial, index) => (
                     <div
-                      className="testimonial-box p-4 rounded mx-4 d-flex"
+                      className="testimonial-box p-6 rounded-xl flex"
                       key={index}
                     >
-                      <div className="">
+                      <div>
                         <img
                           src={testimonial.image}
                           alt={testimonial.name}
                           className="me-3 imgRound"
                         />
                       </div>
-                      <div className="leftBorder">
-                        <div className="ms-3">
+                      <div className="border-l-4 leftBorder pl-6 greenColor">
+                        <div className="ml-3">
                           <p className="mb-0">{testimonial.comment}</p>
-                          <p className="mt-3 fw-bold text-end">
+                          <p className="mt-3 font-bold text-right">
                             — {testimonial.name}
                           </p>
                         </div>

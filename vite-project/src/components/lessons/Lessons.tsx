@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CourseProgress from "./CourseProgress";
+import ReactPlayer from "react-player";
 import { Lesson, UserProgress } from "../../types/userTypes";
 import useAuth from "../../hooks/useAuth";
+import CourseProgress from "./CourseProgress";
+import NavbarComponent from "../Navbar";
+import { useNavigate } from "react-router-dom";
+
 export interface CourseProgressProps {
   userProgress: UserProgress[];
   lessons: Lesson[];
   overallProgress: number;
 }
+
 const CoursePreview: React.FC = () => {
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   // Use the useAuth hook to access the current user
   const { currentUser, loading: authLoading } = useAuth();
@@ -57,15 +63,10 @@ const CoursePreview: React.FC = () => {
     return <div>Please log in to view your course progress.</div>;
   }
 
-  // Filter progress data for the logged-in user
   const filteredProgress = userProgress.filter(
     (progress) => progress.user_id === Number(currentUser.id) // Ensure types match
   );
 
-  // Log filtered progress for debugging
-  console.log("Filtered Progress:", filteredProgress);
-
-  // Calculate overall progress
   const totalLessons = lessons.length;
   const totalProgress = filteredProgress.reduce(
     (sum, progress) => sum + progress.progress_percentage,
@@ -73,26 +74,26 @@ const CoursePreview: React.FC = () => {
   );
   const overallProgress = totalProgress / totalLessons;
 
-  // Log overall progress for debugging
-  console.log("Overall Progress:", overallProgress);
-
-  // Assuming the first lesson is the current one
   const currentLesson = lessons[0];
 
   return (
     <>
+      <NavbarComponent />
       <div style={{ display: "flex", gap: "20px", padding: "20px" }}>
         {/* Left Column: Course Video Preview */}
         <div style={{ flex: 2 }}>
           <div style={{ borderRadius: "8px", overflow: "hidden" }}>
-            <video controls style={{ width: "100%" }}>
-              <source src={currentLesson.video_url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {/* Replace the <video> element with ReactPlayer */}
+            <ReactPlayer
+              url={currentLesson.video_url}
+              controls
+              width="100%"
+              height="500px"
+            />
           </div>
           <div style={{ marginTop: "20px", textAlign: "center" }}>
             <h1 style={{ fontSize: "24px", marginBottom: "10px" }}>
-              Course Title
+              {currentLesson.title}
             </h1>
             <button
               style={{
@@ -100,7 +101,7 @@ const CoursePreview: React.FC = () => {
                 margin: "5px",
                 border: "none",
                 borderRadius: "5px",
-                backgroundColor: "#007bff",
+                backgroundColor: "#024f40",
                 color: "white",
                 cursor: "pointer",
                 fontSize: "16px",
@@ -108,13 +109,14 @@ const CoursePreview: React.FC = () => {
             >
               Subscribe
             </button>
+
             <button
               style={{
                 padding: "10px 20px",
                 margin: "5px",
                 border: "none",
                 borderRadius: "5px",
-                backgroundColor: "#28a745",
+                backgroundColor: "#024f40",
                 color: "white",
                 cursor: "pointer",
                 fontSize: "16px",
@@ -144,23 +146,31 @@ const CoursePreview: React.FC = () => {
                   cursor: "pointer",
                 }}
               >
-                <img
-                  src="thumbnail-placeholder.jpg" // Replace with actual thumbnail URL
-                  alt="Lesson Thumbnail"
+                {/* Replace the image with ReactPlayer for video preview */}
+                <div
                   style={{
                     width: "80px",
                     height: "45px",
                     borderRadius: "4px",
-                    objectFit: "cover",
+                    overflow: "hidden",
                   }}
-                />
+                >
+                  <ReactPlayer
+                    url={lesson.video_url} // Use the lesson's video URL
+                    width="80px"
+                    height="45px"
+                    controls={false} // Disable controls for a cleaner look
+                    light={true} // Show a light thumbnail (optional)
+                    playing={false} // Don't autoplay
+                  />
+                </div>
                 <div>
                   <h3 style={{ fontSize: "16px", margin: "0" }}>
                     {lesson.title}
                   </h3>
                   <p style={{ fontSize: "14px", color: "#666", margin: "0" }}>
                     5:30
-                  </p>{" "}
+                  </p>
                 </div>
               </div>
             ))}
@@ -178,6 +188,35 @@ const CoursePreview: React.FC = () => {
           />
         </div>
       )}
+      <div
+        style={{
+          borderTop: "1px solid #024f40",
+          backgroundColor: "lightgray",
+          textAlign: "center",
+          padding: "60px",
+        }}
+      >
+        <h3>Stay updated with the latest quantum Physics</h3>
+        <input
+          style={{
+            backgroundColor: "white",
+            color: "#024f40",
+            padding: "5px 10px",
+          }}
+          type="email"
+          placeholder="Enter email"
+        />
+        <button
+          onClick={() => navigate("/dashboard")}
+          style={{
+            backgroundColor: "#024f40",
+            color: "white",
+            padding: "5px 15px",
+          }}
+        >
+          Go To Profile
+        </button>
+      </div>
     </>
   );
 };

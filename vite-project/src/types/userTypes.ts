@@ -97,3 +97,30 @@ export interface Task {
   title: string;
   description: string;
 }
+export interface ProfessorData {
+  id: number; // Changed from `id: 6` to `id: number` for flexibility
+  position: string;
+  company: string;
+  gender: string;
+  birth_date: string;
+  work_experience_years: number;
+  created_at: string;
+  updated_at: string;
+  profile_picture: string; // Added this property
+}
+export interface Professor extends ProfessorData {
+  name: string;
+  email: string;
+  role_id: number;
+  profile_picture: string;
+}
+export interface LeaderboardUser {
+  id: number;
+  name: string;
+  totalPoints: number;
+  lectures: number;
+  achievements: number;
+  awards: number;
+  badges: number;
+  completedCourses: number;
+}

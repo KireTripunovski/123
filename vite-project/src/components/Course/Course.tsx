@@ -32,7 +32,10 @@ export default function Course() {
             >
               Browse Courses
             </button>
-            <button className="lessonButton greenColor mt-5 ms-5">
+            <button
+              onClick={() => navigate("/learnigmode")}
+              className="lessonButton greenColor mt-5 ms-5"
+            >
               Try a Free Lesson{" "}
               <i className="fa-solid fa-chevron-right ms-5"></i>
             </button>

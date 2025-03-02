@@ -21,6 +21,9 @@ import useAuth from "../hooks/useAuth";
 import NavbarComponent from "./Navbar";
 import { useStudentDataStore } from "../store/stores";
 import CourseList from "./CoursesList";
+import LearningCard from "./Learning/Learning";
+import Achievements from "./Achievments/Achievments";
+import Leaderboard from "./Leaderboard/Leaderboard";
 
 const Dashboard: React.FC = () => {
   const { currentUser, logout, loading } = useAuth();
@@ -43,7 +46,6 @@ const Dashboard: React.FC = () => {
 
       const fetchData = async () => {
         try {
-          // Fetch user profile data
           const userResponse = await fetch(
             `http://localhost:3002/users/${currentUser.id}`
           );
@@ -52,11 +54,8 @@ const Dashboard: React.FC = () => {
           }
           const userData = await userResponse.json();
 
-          // Fetch student data
           const studentData = await fetchStudentData(currentUser.id);
-          // If no student data is found, studentData will be an empty object or default data
 
-          // Fetch categories
           const interestsResponse = await fetch(
             "http://localhost:3002/interests"
           );
@@ -418,6 +417,9 @@ const Dashboard: React.FC = () => {
         </main>
       </div>
       <div>
+        <LearningCard />
+        <Achievements />
+        <Leaderboard />
         <CourseList />
       </div>
     </>

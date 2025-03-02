@@ -1,14 +1,20 @@
 import React from "react";
 import logo from "/Group 14040.png";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const NavbarComponent: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <header className="navbar">
-      <div className="navbar-logo">
-        <img src={`${logo}`} alt="OutLearn Logo" />
-      </div>
       <nav className="navbar-links">
+        <div
+          onClick={() => navigate("/")}
+          style={{ cursor: "pointer" }}
+          className="navbar-logo"
+        >
+          <img src={`${logo}`} alt="OutLearn Logo" />
+        </div>
         <ul className="left-links">
           <li>
             <a href="/">Home</a>

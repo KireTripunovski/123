@@ -12,7 +12,8 @@ import OnboardedPage from "./components/OnBoardingPage";
 import CoursePreview from "./components/lessons/Lessons";
 import LandingPage from "./components/LandingPage";
 import Footer from "./components/Footer/Footer";
-// import ProfessorDashboard from "./components/ProffesorDashboard";
+import ProfessorDashboard from "./components/ProffesorDashboard";
+import LearningPage from "./components/LearningPage/LearningPage";
 
 const App: React.FC = () => {
   return (
@@ -27,8 +28,8 @@ const App: React.FC = () => {
           <Route path="onboarding" element={<Onbaording />} />
           <Route path="onboarded" element={<OnboardedPage />} />
           <Route path="lessons" element={<CoursePreview />} />
-
-          {/* <Route path="proffesor" element={<ProfessorDashboard />} /> */}
+          <Route path="professor" element={<ProfessorDashboard />} />
+          <Route path="learnigmode" element={<LearningPage />} />
         </Routes>
         <Footer />
       </Router>
